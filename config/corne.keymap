@@ -22,31 +22,31 @@
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
 //                          ╰caps_word on double tap, not sure if I like it yet
 
-// Layer switching
-#define SECLTHMB  &ltsk  MEDIA    LSHIFT  // tap for sticky shift : hold for media layer
-#define PRMLTHMB  &ltr   NUM      0      //  zero here because key-repeat does not take arguments
-#define TERLTHMB  &mt    LSHIFT   TAB   //   tap for tab : hold for shift
+// // Layer switching
+// #define SECLTHMB  &ltsk  MEDIA    LSHIFT  // tap for sticky shift : hold for media layer
+// #define PRMLTHMB  &ltr   NUM      0      //  zero here because key-repeat does not take arguments
+// #define TERLTHMB  &mt    LSHIFT   TAB   //   tap for tab : hold for shift
 
-#define TERRTHMB  &lt    NAV      SPACE
-#define PRMRTHMB  &mt    RC(BSPC) BSPC   // tap gives you backspace : long tap gives you delete word
-#define SECRTHMB  &ltsk  FUN      RCTRL //  tap for sticky ctrl : hold for function layer
+// #define TERRTHMB  &lt    NAV      SPACE
+// #define PRMRTHMB  &mt    RC(BSPC) BSPC   // tap gives you backspace : long tap gives you delete word
+// #define SECRTHMB  &ltsk  FUN      RCTRL //  tap for sticky ctrl : hold for function layer
 
-// shorter codes
-#define BPSTE    &kp  K_PASTE
-#define BCPY     &kp  K_COPY
-#define BCUT     &kp  K_CUT
-#define BUNDO    &kp  K_UNDO
-#define BREDO    &kp  K_REDO
-#define BPREV    &kp  K_PREV
-#define BNEXT    &kp  K_NEXT
-#define BPLYPSE  &kp  K_PP
-#define BMUTE    &kp  K_MUTE
-#define BSTOP    &kp  K_STOP2
-#define BVOLD    &kp  K_VOL_DN
-#define BVOLU    &kp  K_VOL_UP
-#define OUTTOG   &out OUT_TOG // toggle keyboard output bluetooth/usb
-#define ___      &trans      //  transparent
-#define _x_      &none
+// // shorter codes
+// #define BPSTE    &kp  K_PASTE
+// #define BCPY     &kp  K_COPY
+// #define BCUT     &kp  K_CUT
+// #define BUNDO    &kp  K_UNDO
+// #define BREDO    &kp  K_REDO
+// #define BPREV    &kp  K_PREV
+// #define BNEXT    &kp  K_NEXT
+// #define BPLYPSE  &kp  K_PP
+// #define BMUTE    &kp  K_MUTE
+// #define BSTOP    &kp  K_STOP2
+// #define BVOLD    &kp  K_VOL_DN
+// #define BVOLU    &kp  K_VOL_UP
+// #define OUTTOG   &out OUT_TOG // toggle keyboard output bluetooth/usb
+// #define ___      &trans      //  transparent
+// #define _x_      &none
 
 // Home row mods
 #define HRML(k1, k2, k3, k4) &hml LSHFT k1 &hml LCTRL k2 &hml LALT  k3 &hml LGUI  k4
@@ -64,90 +64,36 @@
     default_layer { // layer 0 (default)
       bindings = <
 // ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
-// │    Q    │    W    │    E    │    R    │    T    │   │    Y    │    U    │    I    │    O    │    P    │
-    &kp Q     &kp W     &kp E     &kp R     &kp T         &kp Y     &kp U     &kp I     &kp O     &kp P
+// │    V    │    K    │    X    │    C    │    SEMI │   │    SQT  │    F    │    Q    │    Z    │    J    │
+    &kp V     &kp K     &kp X     &kp C     &kp SEMI      &kp SQT   &kp F     &kp Q     &kp Z     &kp J
 // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │    A    │    S    │    D    │    F    │    G    │   │    H    │    J    │    K    │    L    │    '    │
-    HRML(A,       S,        D,        F)    &kp G         &kp H     HRMR(J,       K,        L,       SQT)
+// │    S    │    T    │    R    │    D    │    G    │   │    B    │    N    │    A    │    E    │    I    │
+    HRML(S,       T,        R,        D)    &kp G         &kp B     HRMR(N,       A,        E,       I)
 // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │    Z    │    X    │    C    │    V    │    B    │   │    N    │    M    │   ,/;   │   ./:   │    /    │
-    &kp Z     &kp X     &kp C     &kp V     &kp B         &kp N     &kp M     &cma_smi  &dot_cln  &kp FSLH
+// │    W    │    M    │    L    │    Y    │   COMMA │   │    DOT  │    H    │    O    │    U    │    P    │
+    &kp W     &kp M     &kp L     &kp Y    &kp COMMA      &kp DOT   &kp H     &kp O     &kp U     &kp P
 // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-                        SECLTHMB  PRMLTHMB  TERLTHMB      TERRTHMB  PRMRTHMB  SECRTHMB
+                        &kp ESC   &kp TAB  &kp SPACE      TERRTHMB  &kp BSPC  &kp RET
 //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
       >;
     };
-    number_layer { // layer 1 (numbers)
-      bindings = <
-// ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
-// │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │   │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │
-    _x_       _x_       _x_       _x_       _x_           _x_       _x_       _x_       _x_       _x_
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │    1    │    2    │    3    │    4    │    5    │   │     6   │    7    │    8    │    9    │    0    │
-    HRML(N1,     N2,       N3,       N4)    &kp N5        &kp N6    HRMR(N7,     N8,       N9,       N0)
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │   │   NOP   │   NOP   │   NOP   │   ./:   │   NOP   │
-       _x_       _x_       _x_       _x_       _x_           _x_       _x_       _x_    &dot_cln     _x_
-// ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-//                     │   NOP   │   NOP   │   NOP   │   │  SPACE  │   NOP   │  ENTER  │
-                        _x_       ___       _x_           &kp SPACE &kp BSPC  &kp RET
-//                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
-      >;
-    };
-
-    navigation_layer { // layer 2 (navigation)
-      bindings = <
-// ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
-// │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │   │   REDO  │   CUT   │  COPY   │  PASTE  │  UNDO   │
-    _x_       _x_       _x_       _x_       _x_           BREDO     BCUT      BCPY        BPSTE     BUNDO
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │ SHIFT   │  CTRL   │   ALT   │   SUPER │   NOP   │   │  LEFT   │  DOWN   │    UP   │  RIGHT  │   NOP   │
-    &kp LSHFT &kp LCTRL  &kp LALT &kp LGUI  _x_           &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT _x_
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │   │  HOME   │  PGDN   │   PGUP  │   END   │  INSERT │
-    _x_       _x_       _x_       _x_       _x_           &kp HOME  &kp PG_DN &kp PG_UP  &kp END  &kp INS
-// ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-//                     │  ENTER  │  BCKSPC │  SPACE  │   │   NOP   │   NOP   │   NOP   │
-                        &kp RET   &kp BSPC  &kp SPACE     ___       _x_       _x_
-//                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
-      >;
-    };
-    media_layer { // layer 5 (media)
-      bindings = <
-// ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
-// │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │   │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │
-    _x_       _x_       _x_       _x_       _x_           _x_       _x_       _x_       _x_       _x_
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │ SHIFT   │  CTRL   │   ALT   │   SUPER │   NOP   │   │   NOP   │PREV_TRCK│ VOl_DOWN│  VOL_UP │NEXT_TRCK│
-    &kp LSHFT &kp LCTRL  &kp LALT &kp LGUI  _x_           OUTTOG    BPREV     BVOLD     BVOLU     BNEXT
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │   │BTPROF 0 │BTPROF 1 │BTPROF 2 │BTPROF 3 │BTROF 4  │// shift to clear profile
-    _x_       _x_       _x_       &bt BT_CLR _x_          &btsc_0   &btsc_1   &btsc_2   &btsc_3   &btsc_4
-// ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-//                     │   NOP   │   NOP   │   NOP   │   │  STOP   │Pause/Ply│  MUTE   │
-                        ___       _x_       _x_           BSTOP     BPLYPSE   BMUTE
-//                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
-      >;
-    };
-    function_layer { // layer 6 (function)
-      bindings = <
-// ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
-// │   F12   │   F7    │   F8    │   F9    │   NOP   │   │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │
-    &kp F12   &kp F7    &kp F8    &kp F9    _x_           _x_       _x_       _x_       _x_       _x_
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │   F11   │   F4    │   F5    │   F6    │   NOP   │   │   NOP   │  SUPER  │   ALT   │  CTRL   │  SHIFT  │
-    &kp F11   &kp F4    &kp F5    &kp F6    _x_           _x_       &kp RGUI  &kp RALT  &kp RCTRL &kp RSHFT
-// ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
-// │   F10   │   F1    │   F2    │   F3    │   NOP   │   │   NOP   │   NOP   │   NOP   │   NOP   │   NOP   │
-    &kp F10   &kp F1    &kp F2    &kp F3    _x_           _x_       _x_       _x_       _x_       _x_
-// ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
-//                     │   APP   │  SPACE  │   TAB   │   │   NOP   │   NOP   │   NOP   │
-                        &kp K_APP &kp SPACE &kp TAB       _x_       _x_       ___
-//                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
-      >;
-    };
+//     symbol_layer { // layer 1 (numbers)
+//       bindings = <
+// // ╭─────────────────────────────────────────────────╮   ╭─────────────────────────────────────────────────╮
+// // │    1    │    2    │    3    │    4    │    5    │   │    6    │    7    │    8    │    9    │    0    │
+//     &kp KP_N1 &kp KP_N2 &kp KP_N3     &kp C     &kp SEMI      &kp SQT   &kp F     &kp Q     &kp Z     &kp J
+// // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
+// // │    S    │    T    │    R    │    D    │    G    │   │    B    │    N    │    A    │    E    │    I    │
+//     HRML(S,       T,        R,        D)    &kp G         &kp B     HRMR(N,       A,        E,       I)
+// // ├─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────┤
+// // │    W    │    M    │    L    │    Y    │   COMMA │   │    DOT  │    H    │    O    │    U    │    P    │
+//     &kp W     &kp M     &kp L     &kp Y    &kp COMMA      &kp DOT   &kp H     &kp O     &kp U     &kp P
+// // ╰─────────┼─────────┼─────────┼─────────┼─────────┤   ├─────────┼─────────┼─────────┼─────────┼─────────╯
+//                         &kp ESC   &kp TAB  &kp SPACE      TERRTHMB  &kp BSPC  &kp RET
+// //                     ╰─────────────────────────────╯   ╰─────────────────────────────╯
+//       >;
+//     };
 
   };
 };
 
-// vim:ft=cpp
